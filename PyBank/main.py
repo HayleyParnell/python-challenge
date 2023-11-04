@@ -12,43 +12,34 @@
 
 #final script should both print the analysis to the terminal and export a text file with the results
 
-
-
-#import and set file path associated with the file
-
 import os
 import csv
+
+# Specify the path to your CSV file
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
-
-#set variables
+# Initialize variables to store the analysis results
 total_months = 0
-months = []
-
 total_profit_losses = 0
 previous_profit_loss = 0
 profit_loss_changes = []
+months = []
 
-
-#open and read the file
-with open(csvpath,mode ="r", newline = "") as file:
+# Open the CSV file for reading
+with open(csvpath, mode='r', newline='') as file:
     csv_reader = csv.reader(file)
-    print(csv_reader)
+    next(csv_reader)  # Skip the header row
 
-    csv_header = next(csv_reader)
-    
-    
-    #find the total number of months
     for row in csv_reader:
-        #set variables for month and profit losses
+        # Extract the month and profit/loss values
         month = row[0]
         profit_loss = int(row[1])
 
-        #find total profit/losses
+        # Calculate the total profit/losses
         total_profit_losses += profit_loss
 
-    #total profit/losses changes
-        if total_months > 0 :
+        # Calculate the changes in profit/losses
+        if total_months > 0:
             change = profit_loss - previous_profit_loss
             profit_loss_changes.append(change)
             months.append(month)
@@ -57,21 +48,28 @@ with open(csvpath,mode ="r", newline = "") as file:
 
         total_months += 1
 
-
-#calculate average change in profit/losses
-average_change = sum(profit_loss_changes) / len(profit_loss_changes)   
+# Calculate the average change in profit/losses
+average_change = sum(profit_loss_changes) / len(profit_loss_changes)
 
 # Find the greatest increase and decrease in profits
 greatest_increase = max(profit_loss_changes)
 greatest_decrease = min(profit_loss_changes)
-      
-#find month of the greatest increase and decrease
+
+# Get the corresponding month for the greatest increase and decrease
 increase_month = months[profit_loss_changes.index(greatest_increase)]
 decrease_month = months[profit_loss_changes.index(greatest_decrease)]
 
+# Print the analysis results to the terminal
+print("Financial Analysis")
+print("----------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total: ${total_profit_losses}")
+print(f"Average Change: ${average_change:.2f}")
+print(f"Greatest Increase in Profits: {increase_month} (${greatest_increase})")
+print(f"Greatest Decrease in Profits: {decrease_month} (${greatest_decrease})")
 
 # Specify the path for the output text file
-output_path = os.path.join("Analysis", "PyBank_output.txt")
+output_path = os.path.join('Analysis','PyBank_output.txt')
 
 # Write the analysis results to a text file
 with open(output_path, mode='w') as output_file:
@@ -82,4 +80,5 @@ with open(output_path, mode='w') as output_file:
     output_file.write(f"Average Change: ${average_change:.2f}\n")
     output_file.write(f"Greatest Increase in Profits: {increase_month} (${greatest_increase})\n")
     output_file.write(f"Greatest Decrease in Profits: {decrease_month} (${greatest_decrease})\n")
+
 
