@@ -20,7 +20,7 @@ import os
 #connect csv with budget data
 import csv
 
-# Specify the path to your CSV file
+# Specify the path to CSV file
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
 # declare variables and lists 
@@ -31,7 +31,7 @@ previous_profit_loss = 0
 profit_loss_changes = []
 
 
-# Open the CSV file for reading
+# Open CSV file for reading
 with open(csvpath, mode='r', newline='') as file:
     csv_reader = csv.reader(file)
     #skip header
