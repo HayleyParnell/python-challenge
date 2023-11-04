@@ -79,3 +79,6 @@ Winner: Diana DeGette
 
 
 In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+
+
+Assistance with establishing code to specify path and read the CSV from ASKBCS support was recieved
