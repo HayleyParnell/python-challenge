@@ -1,10 +1,28 @@
+#In this Challenge, you are tasked with helping a small, rural town modernize its vote-counting process.
+
+#You will be given a set of poll data called election_data.csv. The dataset is composed of three columns: "Voter ID", "County", and "Candidate". Your task is to create a Python script that analyzes the votes and calculates each of the following values:
+
+#The total number of votes cast
+
+#A complete list of candidates who received votes
+
+#The percentage of votes each candidate won
+
+#The total number of votes each candidate won
+
+#The winner of the election based on popular vote
+
+
+#connect operating systems
 import os
+
+#connect election data
 import csv
 
 # Specify the path to your CSV file
 csvpath = os.path.join('Resources', 'election_data.csv') 
 
-# Initialize variables to store the analysis results
+# Set variables and dictionary
 total_votes = 0
 candidates = {}
 winner = ""
@@ -13,7 +31,9 @@ winner_votes = 0
 # Open the CSV file for reading
 with open(csvpath, mode='r', newline='') as file:
     csv_reader = csv.reader(file)
-    next(csv_reader)  # Skip the header row
+
+    #skip header
+    next(csv_reader)  
 
     for row in csv_reader:
         # Extract the candidate's name

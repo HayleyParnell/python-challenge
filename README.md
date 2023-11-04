@@ -1,8 +1,7 @@
 # python-challenge
 
-Background
 It's time to put away the Excel sheet and enter the world of programming with Python. In this assignment, you'll use the concepts you've learned to complete two Python challenges, PyBank and PyPoll. Both tasks present a real-world situation where your newly developed Python scripting skills come in handy.
-
+----------------------------------------------------------------------------------------------------------------------------------------
 Before You Begin
 Before starting the assignment, be sure to complete the following steps:
 
@@ -21,12 +20,7 @@ A Resources folder that contains the CSV files you used. Make sure that your scr
 An analysis folder that contains your text file that has the results from your analysis.
 
 Push these changes to GitHub or GitLab.
-
-Files
-Download the following files to help you get started:
-
-Module 3 Challenge filesLinks to an external site.
-
+----------------------------------------------------------------------------------------------------------------------------------------
 PyBank Instructions
 In this Challenge, you are tasked with creating a Python script to analyze the financial records of your company. You will be given a financial dataset called budget_data.csv. The dataset is composed of two columns: "Date" and "Profit/Losses".
 
@@ -42,6 +36,7 @@ The greatest increase in profits (date and amount) over the entire period
 
 The greatest decrease in profits (date and amount) over the entire period
 
+
 Your analysis should align with the following results:
 
 Financial Analysis
@@ -52,7 +47,7 @@ Average Change: $-8311.11
 Greatest Increase in Profits: Aug-16 ($1862002)
 Greatest Decrease in Profits: Feb-14 ($-1825558)
 In addition, your final script should both print the analysis to the terminal and export a text file with the results.
-
+----------------------------------------------------------------------------------------------------------------------------------------
 PyPoll Instructions
 In this Challenge, you are tasked with helping a small, rural town modernize its vote-counting process.
 
@@ -80,4 +75,7 @@ Raymon Anthony Doane: 3.139% (11606)
 -------------------------
 Winner: Diana DeGette
 -------------------------
+
+
+
 In addition, your final script should both print the analysis to the terminal and export a text file with the results.

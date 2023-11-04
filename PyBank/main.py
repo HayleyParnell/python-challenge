@@ -1,4 +1,5 @@
-#Your task is to create a Python script that analyzes the records to calculate each of the following values:
+#Module 3 Pythong- Challenge PyBank
+# Create a Python script that analyzes the records to calculate each of the following values:
 
 #The total number of months included in the dataset
 
@@ -12,26 +13,32 @@
 
 #final script should both print the analysis to the terminal and export a text file with the results
 
+
+#connect operating systems
 import os
+
+#connect csv with budget data
 import csv
 
 # Specify the path to your CSV file
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
-# Initialize variables to store the analysis results
+# declare variables and lists 
 total_months = 0
+months = []
 total_profit_losses = 0
 previous_profit_loss = 0
 profit_loss_changes = []
-months = []
+
 
 # Open the CSV file for reading
 with open(csvpath, mode='r', newline='') as file:
     csv_reader = csv.reader(file)
-    next(csv_reader)  # Skip the header row
+    #skip header
+    next(csv_reader)  
 
     for row in csv_reader:
-        # Extract the month and profit/loss values
+        # declare month and profit/losses
         month = row[0]
         profit_loss = int(row[1])
 
@@ -41,17 +48,23 @@ with open(csvpath, mode='r', newline='') as file:
         # Calculate the changes in profit/losses
         if total_months > 0:
             change = profit_loss - previous_profit_loss
+
+            #append the calculated change to the profit_loss_change list
             profit_loss_changes.append(change)
+
+            #append the month to the months list to keep track of the corresponding month
             months.append(month)
 
+        #reset previous_profit_loss
         previous_profit_loss = profit_loss
 
+        #increment the total_months counter
         total_months += 1
 
 # Calculate the average change in profit/losses
 average_change = sum(profit_loss_changes) / len(profit_loss_changes)
 
-# Find the greatest increase and decrease in profits
+# Calculate the greatest increase and decrease in profits
 greatest_increase = max(profit_loss_changes)
 greatest_decrease = min(profit_loss_changes)
 
